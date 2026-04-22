@@ -17,10 +17,7 @@ export default defineConfig({
   },
   test: {
     include: ['tests/**/*.test.{ts,tsx}'],
-    environmentMatchGlobs: [
-      ['tests/**/*.test.tsx', 'jsdom'],
-      ['tests/**/*.test.ts', 'node'],
-    ],
+    environment: 'jsdom',
     setupFiles: ['./tests/setup.ts'],
     css: { modules: { classNameStrategy: 'non-scoped' } },
   },
