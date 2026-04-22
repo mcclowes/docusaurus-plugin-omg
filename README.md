@@ -26,11 +26,11 @@ plugins: [
 ]
 ```
 
-| Option      | Type                              | Default                  | Notes                                                |
-| ----------- | --------------------------------- | ------------------------ | ---------------------------------------------------- |
-| `addresses` | `string[]`                        | `[]`                     | omg.lol addresses to fetch latest status + weblog    |
-| `pastes`    | `{ address, paste }[]`            | `[]`                     | Specific pastes to fetch                             |
-| `apiBase`   | `string`                          | `https://api.omg.lol`    | Override for testing or self-hosted forks            |
+| Option      | Type                   | Default               | Notes                                             |
+| ----------- | ---------------------- | --------------------- | ------------------------------------------------- |
+| `addresses` | `string[]`             | `[]`                  | omg.lol addresses to fetch latest status + weblog |
+| `pastes`    | `{ address, paste }[]` | `[]`                  | Specific pastes to fetch                          |
+| `apiBase`   | `string`               | `https://api.omg.lol` | Override for testing or self-hosted forks         |
 
 The plugin pre-fetches at build time because Docusaurus is a static site — it needs to know what to retrieve before MDX is parsed.
 
@@ -39,9 +39,9 @@ The plugin pre-fetches at build time because Docusaurus is a static site — it 
 Three theme components are available in any `.md` / `.mdx` file:
 
 ```mdx
-import OmgStatus from '@theme/OmgStatus';
-import OmgWeblogLatest from '@theme/OmgWeblogLatest';
-import OmgPaste from '@theme/OmgPaste';
+import OmgStatus from '@theme/OmgStatus'
+import OmgWeblogLatest from '@theme/OmgWeblogLatest'
+import OmgPaste from '@theme/OmgPaste'
 
 <OmgStatus address="adam" />
 

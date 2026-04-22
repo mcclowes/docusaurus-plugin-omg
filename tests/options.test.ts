@@ -32,9 +32,9 @@ describe('validateOptions', () => {
   })
 
   it('rejects malformed paste entries', () => {
-    expect(() =>
-      validateOptions({ pastes: [{ address: 'adam', paste: '' }] })
-    ).toThrow(/invalid paste/)
+    expect(() => validateOptions({ pastes: [{ address: 'adam', paste: '' }] })).toThrow(
+      /invalid paste/
+    )
   })
 
   it('rejects non-http apiBase', () => {

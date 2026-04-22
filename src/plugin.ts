@@ -35,20 +35,14 @@ export default function pluginOmg(
 
       const weblogEntries = await Promise.all(
         resolved.addresses.map(async (address) => {
-          const post = await safe(
-            () => client.latestWeblogPost(address),
-            `weblog for ${address}`
-          )
+          const post = await safe(() => client.latestWeblogPost(address), `weblog for ${address}`)
           return [address, post] as const
         })
       )
 
       const pasteEntries = await Promise.all(
         resolved.pastes.map(async ({ address, paste }) => {
-          const data = await safe(
-            () => client.paste(address, paste),
-            `paste ${address}/${paste}`
-          )
+          const data = await safe(() => client.paste(address, paste), `paste ${address}/${paste}`)
           return [pasteKey(address, paste), data] as const
         })
       )

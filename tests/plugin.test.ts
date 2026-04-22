@@ -5,11 +5,13 @@ import type { OmgPaste, OmgStatus, OmgWeblogPost } from '../src/api/types'
 
 const fakeContext = {} as LoadContext
 
-function makeClient(overrides: Partial<{
-  latestStatus: (a: string) => Promise<OmgStatus | null>
-  latestWeblogPost: (a: string) => Promise<OmgWeblogPost | null>
-  paste: (a: string, p: string) => Promise<OmgPaste | null>
-}> = {}) {
+function makeClient(
+  overrides: Partial<{
+    latestStatus: (a: string) => Promise<OmgStatus | null>
+    latestWeblogPost: (a: string) => Promise<OmgWeblogPost | null>
+    paste: (a: string, p: string) => Promise<OmgPaste | null>
+  }> = {}
+) {
   return {
     latestStatus: overrides.latestStatus ?? vi.fn(async () => null),
     latestWeblogPost: overrides.latestWeblogPost ?? vi.fn(async () => null),
@@ -78,11 +80,7 @@ describe('pluginOmg', () => {
       }),
     })
 
-    const plugin = pluginOmg(
-      fakeContext,
-      { addresses: ['adam'] },
-      { clientFactory: () => client }
-    )
+    const plugin = pluginOmg(fakeContext, { addresses: ['adam'] }, { clientFactory: () => client })
 
     const content = await plugin.loadContent!()
     expect(content?.statuses.adam).toBeNull()
@@ -104,8 +102,6 @@ describe('pluginOmg', () => {
   })
 
   it('rejects invalid options at construction time', () => {
-    expect(() =>
-      pluginOmg(fakeContext, { addresses: ['has spaces'] })
-    ).toThrow(/invalid address/)
+    expect(() => pluginOmg(fakeContext, { addresses: ['has spaces'] })).toThrow(/invalid address/)
   })
 })

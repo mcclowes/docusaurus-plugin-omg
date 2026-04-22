@@ -1,0 +1,30 @@
+{
+  "name": "docusaurus-plugin-omg-sample",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "start": "docusaurus start",
+    "build": "docusaurus build",
+    "serve": "docusaurus serve",
+    "clear": "docusaurus clear"
+  },
+  "dependencies": {
+    "@docusaurus/core": "^3.9.2",
+    "@docusaurus/preset-classic": "^3.9.2",
+    "clsx": "^2.1.1",
+    "docusaurus-plugin-omg": "file:../..",
+    "prism-react-renderer": "^2.3.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.5",
+    "typescript": "^5.6.3"
+  },
+  "overrides": {
+    "@docusaurus/bundler": {
+      "webpackbar": "^7.0.0"
+    }
+  }
+}

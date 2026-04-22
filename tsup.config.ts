@@ -11,6 +11,7 @@ export default defineConfig({
   format: ['cjs', 'esm'],
   sourcemap: true,
   clean: true,
+  shims: true,
   target: 'es2020',
   external: [
     '@docusaurus/ExecutionEnvironment',

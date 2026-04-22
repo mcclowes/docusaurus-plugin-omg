@@ -10,7 +10,7 @@ Guidance for Claude Code when working in this repository.
 - Lifecycle: `src/plugin.ts` uses `loadContent()` → `setGlobalData()` → `getThemePath()`.
 - API client: `src/api/client.ts` (typed, in-memory cache, swallows 404s as `null`).
 - Theme components: `src/theme/{OmgStatus,OmgWeblogLatest,OmgPaste}/`.
-- Example site: `examples/docusaurus-v3/`, consumes built `dist/` via local path.
+- Example site: `examples/sample-site/`, consumes the package via `file:../..` and references it by name (`'docusaurus-plugin-omg'`) — the parent `dist/` must be built first.
 
 ## Stack
 
@@ -26,7 +26,15 @@ Guidance for Claude Code when working in this repository.
 - `npm run build` / `dev`
 - `npm run typecheck`
 - `npm run lint` / `lint:fix`
+- `npm run format` / `format:check`
 - `npm run example:start|build|serve|clear`
+
+## CI / release
+
+- **CI** (`.github/workflows/ci.yml`) runs on push/PR to `main`, matrix Node 18/20/22, runs build + typecheck + lint + format:check + tests.
+- **Release** (`.github/workflows/publish.yml`) triggers when `package.json` lands on `main` (or a `v*` tag is pushed). Uses npm trusted publishing (OIDC, no `NPM_TOKEN`); requires a `Production` GH environment in repo settings. Publishes with provenance + creates a GitHub Release.
+- **Version bump** (`.github/workflows/version-bump.yml`) is manually triggered, opens a PR bumping `package.json`. Merging that PR triggers `publish.yml`.
+- `husky` + `lint-staged` run prettier + eslint on changed files at commit time via `.husky/pre-commit`.
 
 ## Conventions
 

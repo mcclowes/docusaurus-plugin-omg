@@ -10,7 +10,11 @@ export default function OmgPaste({ address, paste, language }: OmgPasteProps) {
   if (!entry) {
     return (
       <div className={styles.empty} data-omg-paste={`${address}/${paste}`}>
-        No paste available at <code>{address}/{paste}</code>.
+        No paste available at{' '}
+        <code>
+          {address}/{paste}
+        </code>
+        .
       </div>
     )
   }
