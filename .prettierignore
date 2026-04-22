@@ -1,0 +1,5 @@
+dist
+node_modules
+examples/*/build
+examples/*/.docusaurus
+package-lock.json

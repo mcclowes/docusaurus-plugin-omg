@@ -1,0 +1,21 @@
+{
+  "name": "plugin-omg-example-site",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "start": "docusaurus start",
+    "build": "docusaurus build",
+    "serve": "docusaurus serve",
+    "clear": "docusaurus clear"
+  },
+  "dependencies": {
+    "@docusaurus/core": "^3.0.0",
+    "@docusaurus/preset-classic": "^3.0.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "docusaurus-plugin-omg": "file:../../"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

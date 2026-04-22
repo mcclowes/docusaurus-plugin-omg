@@ -1,0 +1,14 @@
+node_modules
+dist
+coverage
+.docusaurus
+build
+.cache
+.vscode
+.idea
+.DS_Store
+*.log
+.env
+.env.local
+examples/*/build
+examples/*/.docusaurus
