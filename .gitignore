@@ -12,3 +12,6 @@ build
 .env.local
 examples/*/build
 examples/*/.docusaurus
+examples/*/static/api/
+.omg
+examples/*/.omg

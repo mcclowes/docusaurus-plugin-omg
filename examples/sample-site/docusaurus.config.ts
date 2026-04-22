@@ -4,19 +4,17 @@ import { themes as prismThemes } from 'prism-react-renderer'
 import type { PluginOmgOptions } from 'docusaurus-plugin-omg'
 
 const omgOptions: PluginOmgOptions = {
-  addresses: ['adam'],
-  pastes: [],
+  apis: [{ id: 'todo', input: 'api/todo/api.omg.md' }],
 }
 
 const config: Config = {
   title: 'Plugin omg Demo',
-  tagline: 'Showcase of docusaurus-plugin-omg',
+  tagline: 'OMG → OpenAPI 3.1 at Docusaurus build time',
   url: 'https://example.com',
   baseUrl: '/',
   organizationName: 'mcclowes',
   projectName: 'docusaurus-plugin-omg-sample',
   trailingSlash: false,
-  staticDirectories: [],
 
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
@@ -57,6 +55,11 @@ const config: Config = {
           label: 'Docs',
         },
         {
+          href: '/api/todo.yaml',
+          label: 'Compiled spec',
+          position: 'left',
+        },
+        {
           href: 'https://github.com/mcclowes/docusaurus-plugin-omg',
           label: 'GitHub',
           position: 'right',
@@ -71,6 +74,10 @@ const config: Config = {
           items: [{ label: 'Introduction', to: '/docs/intro' }],
         },
         {
+          title: 'OMG',
+          items: [{ label: 'omg.gs', href: 'https://omg.gs/' }],
+        },
+        {
           title: 'Community',
           items: [
             {
@@ -78,10 +85,6 @@ const config: Config = {
               href: 'https://github.com/mcclowes/docusaurus-plugin-omg/issues',
             },
           ],
-        },
-        {
-          title: 'omg.lol',
-          items: [{ label: 'omg.lol', href: 'https://omg.lol/' }],
         },
       ],
       copyright: `Copyright © ${new Date().getFullYear()} mcclowes`,

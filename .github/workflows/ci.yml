@@ -44,3 +44,9 @@ jobs:
 
       - name: Run tests
         run: npm test
+
+      - name: Install example site dependencies
+        run: npm --prefix examples/sample-site install
+
+      - name: Build example site (integration smoke test)
+        run: npm run example:build

@@ -5,19 +5,17 @@
     "module": "ESNext",
     "moduleResolution": "Bundler",
     "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
     "declaration": true,
     "declarationMap": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "resolveJsonModule": true,
-    "allowJs": true,
-    "checkJs": false,
     "noEmit": true,
-    "jsx": "react-jsx",
-    "outDir": "dist",
-    "rootDir": "."
+    "outDir": "dist"
   },
-  "include": ["src", "tests", "tsup.config.ts", "vitest.config.ts", "ambient.d.ts"],
+  "include": ["src", "tests", "tsup.config.ts", "vitest.config.ts"],
   "exclude": ["node_modules", "dist", "examples"]
 }

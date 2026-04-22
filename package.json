@@ -1,7 +1,7 @@
 {
   "name": "docusaurus-plugin-omg",
-  "version": "0.1.0",
-  "description": "Docusaurus plugin to embed omg.lol content (statuses, weblog posts, pastes) in your site",
+  "version": "0.1.1",
+  "description": "Docusaurus v3 plugin that compiles OMG (omg.gs, OpenAPI Markdown Grammar) into OpenAPI 3.1 at build time, ready for any OpenAPI renderer",
   "license": "MIT",
   "type": "module",
   "main": "dist/index.cjs",
@@ -17,7 +17,8 @@
   "files": [
     "dist",
     "README.md",
-    "LICENSE"
+    "LICENSE",
+    "CHANGELOG.md"
   ],
   "scripts": {
     "build": "tsup",
@@ -51,11 +52,14 @@
   "keywords": [
     "docusaurus",
     "docusaurus-plugin",
-    "omg.lol",
+    "omg",
     "omg.gs",
-    "statuslog",
-    "weblog",
-    "pastebin"
+    "openapi",
+    "openapi3",
+    "openapi-3.1",
+    "swagger",
+    "api-docs",
+    "api-documentation"
   ],
   "author": "mcclowes",
   "repository": {
@@ -66,30 +70,34 @@
     "url": "https://github.com/mcclowes/docusaurus-plugin-omg/issues"
   },
   "homepage": "https://github.com/mcclowes/docusaurus-plugin-omg#readme",
+  "dependencies": {
+    "omg-compiler": "^0.2.0",
+    "omg-parser": "^0.2.0"
+  },
   "peerDependencies": {
-    "@docusaurus/core": "^3.0.0",
-    "@docusaurus/types": "^3.0.0",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "@docusaurus/core": "^3.5.0",
+    "@docusaurus/logger": "^3.5.0",
+    "@docusaurus/types": "^3.5.0"
+  },
+  "peerDependenciesMeta": {
+    "@docusaurus/types": {
+      "optional": true
+    }
   },
   "engines": {
     "node": ">=20.0.0"
   },
   "devDependencies": {
-    "@docusaurus/core": "^3.0.0",
+    "@docusaurus/core": "^3.5.0",
+    "@docusaurus/logger": "^3.5.0",
     "@docusaurus/tsconfig": "^3.9.2",
     "@docusaurus/types": "^3.9.2",
+    "@vitest/coverage-v8": "^2.1.0",
+    "yaml": "^2.5.0",
     "@eslint/js": "^9.15.0",
-    "@testing-library/jest-dom": "^6.9.1",
-    "@testing-library/react": "^16.3.0",
     "@types/node": "^22.8.7",
-    "@types/react": "^18.3.1",
-    "@types/react-dom": "^18.3.1",
     "eslint": "^9.15.0",
-    "eslint-plugin-react": "^7.37.2",
-    "eslint-plugin-react-hooks": "^5.0.0",
     "husky": "^9.1.7",
-    "jsdom": "^27.1.0",
     "lint-staged": "^16.4.0",
     "prettier": "^3.6.2",
     "rimraf": "^6.0.1",

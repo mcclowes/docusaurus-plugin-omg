@@ -62,9 +62,8 @@ npm install ../path/to/docusaurus-plugin-omg
    ```
 4. Update `CHANGELOG.md` under "Unreleased" for any user-facing change.
 5. Update `README.md` if the public API changes.
-6. Update the shared docs site under `~/Development/docusaurus/docusaurus-plugins-docs/docs/omg/` for consumer-observable changes.
-7. Commit with a Conventional Commit message (`feat:`, `fix:`, `docs:`, `test:`, `chore:`).
-8. Open a PR. CI runs on Node 18/20/22 and gates merge.
+6. Commit with a Conventional Commit message (`feat:`, `fix:`, `docs:`, `test:`, `chore:`).
+7. Open a PR. CI runs on Node 20/22 and gates merge.
 
 ## Releasing
 

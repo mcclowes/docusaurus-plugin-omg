@@ -1,27 +1,50 @@
 ---
 id: intro
-title: Plugin omg demo
+title: docusaurus-plugin-omg demo
 sidebar_position: 1
 ---
 
-import OmgStatus from '@theme/OmgStatus';
-import OmgWeblogLatest from '@theme/OmgWeblogLatest';
-import OmgPaste from '@theme/OmgPaste';
+# docusaurus-plugin-omg demo
 
-# Plugin omg demo
+This example site uses [docusaurus-plugin-omg](https://github.com/mcclowes/docusaurus-plugin-omg)
+to compile an [OMG](https://omg.gs/) spec to OpenAPI 3.1 at build time.
 
-This example site fetches data from omg.lol at build time and renders it inline.
+## Source
 
-## Latest status
+The OMG source lives under [`api/todo/`](https://github.com/mcclowes/docusaurus-plugin-omg/tree/main/examples/sample-site/api/todo):
 
-<OmgStatus address="adam" />
+```
+api/todo/
+  api.omg.md                         # root: name, version, baseUrl
+  endpoints/
+    list-todos.omg.md                # GET /todos
+    create-todo.omg.md               # POST /todos
+```
 
-## Latest weblog post
+## Plugin config
 
-<OmgWeblogLatest address="adam" />
+```ts title="docusaurus.config.ts"
+import type { PluginOmgOptions } from 'docusaurus-plugin-omg'
 
-## A pinned paste
+const omgOptions: PluginOmgOptions = {
+  apis: [{ id: 'todo', input: 'api/todo/api.omg.md' }],
+}
 
-Add `{ address: 'adam', paste: 'example' }` to the plugin's `pastes` option, then:
+export default {
+  plugins: [['docusaurus-plugin-omg', omgOptions]],
+}
+```
 
-<OmgPaste address="adam" paste="example" language="bash" />
+## Output
+
+After `docusaurus build` the compiled spec lives at
+[`/api/todo.yaml`](/api/todo.yaml). Same URL in `docusaurus start`.
+
+## Rendering
+
+The plugin is deliberately thin: it does not ship an API-docs UI. Point any
+OpenAPI renderer at the compiled file. Popular choices:
+
+- [`redocusaurus`](https://github.com/rohit-gohri/redocusaurus) — Redoc inside Docusaurus.
+- [`docusaurus-plugin-openapi-docs`](https://github.com/PaloAltoNetworks/docusaurus-openapi-docs) — MDX page per endpoint with try-it-out.
+- Standalone [Swagger UI](https://swagger.io/tools/swagger-ui/) or [Redoc](https://github.com/Redocly/redoc).
