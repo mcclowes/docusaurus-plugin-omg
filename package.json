@@ -1,6 +1,6 @@
 {
   "name": "docusaurus-plugin-omg",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Docusaurus v3 plugin that compiles OMG (omg.gs, OpenAPI Markdown Grammar) into OpenAPI 3.1 at build time, ready for any OpenAPI renderer",
   "license": "MIT",
   "type": "module",
