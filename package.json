@@ -71,8 +71,8 @@
   },
   "homepage": "https://github.com/mcclowes/docusaurus-plugin-omg#readme",
   "dependencies": {
-    "omg-compiler": "^0.2.0",
-    "omg-parser": "^0.2.0"
+    "omg-compiler": "^0.5.0",
+    "omg-parser": "^0.5.0"
   },
   "peerDependencies": {
     "@docusaurus/core": "^3.5.0",
