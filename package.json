@@ -94,7 +94,7 @@
     "@docusaurus/types": "^3.9.2",
     "@vitest/coverage-v8": "^4.1.5",
     "yaml": "^2.5.0",
-    "@eslint/js": "^9.15.0",
+    "@eslint/js": "^10.0.1",
     "@types/node": "^22.8.7",
     "eslint": "^9.15.0",
     "husky": "^9.1.7",
