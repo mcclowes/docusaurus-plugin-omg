@@ -32,8 +32,8 @@ Guidance for Claude Code when working in this repository.
 ## CI / release
 
 - **CI** (`.github/workflows/ci.yml`) runs on push/PR to `main`, matrix Node 20/22, runs build + typecheck + lint + format:check + tests.
-- **Release** (`.github/workflows/publish.yml`) triggers when `package.json` lands on `main` (or a `v*` tag is pushed). Uses npm trusted publishing (OIDC, no `NPM_TOKEN`); requires a `Production` GH environment in repo settings. Publishes with provenance + creates a GitHub Release.
-- **Version bump** (`.github/workflows/version-bump.yml`) is manually triggered, opens a PR bumping `package.json`. Merging that PR triggers `publish.yml`.
+- **Release** (`.github/workflows/publish.yml`) triggers when `package.json` lands on `main` (or a `v*` tag is pushed). Uses Node 24/npm 11 for npm trusted publishing (OIDC, no `NPM_TOKEN`); requires a `Production` GH environment in repo settings. Publishes with provenance + creates a GitHub Release.
+- **Version bump** (`.github/workflows/version-bump.yml`) is manually triggered, validates `patch`/`minor`/`major` from an environment variable, and opens a PR bumping `package.json`. Merging that PR triggers `publish.yml`.
 - `husky` + `lint-staged` run prettier + eslint on changed files at commit time via `.husky/pre-commit`.
 
 ## Conventions
