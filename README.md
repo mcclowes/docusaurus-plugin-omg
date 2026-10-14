@@ -6,6 +6,14 @@ OMG is a Markdown DSL for writing API specs — roughly 6× shorter than raw Ope
 
 Deliberately thin: no bundled renderer, no opinions about how the spec gets displayed.
 
+## Compatibility
+
+| Plugin version | Docusaurus                       | Node   |
+| -------------- | -------------------------------- | ------ |
+| `0.1.x`        | `^3.5.0` (tested up to `3.10.1`) | `>=20` |
+
+`peerDependencies` are pinned to `@docusaurus/core: ^3.5.0` because the plugin uses APIs first available in 3.5. There is no React peer — the plugin is build-time only.
+
 ## Install
 
 ```bash
