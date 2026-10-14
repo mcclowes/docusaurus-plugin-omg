@@ -16,8 +16,8 @@ const config: Config = {
   projectName: 'docusaurus-plugin-omg-sample',
   trailingSlash: false,
 
-  onBrokenLinks: 'warn',
-  onBrokenMarkdownLinks: 'warn',
+  onBrokenLinks: 'throw',
+  markdown: { hooks: { onBrokenMarkdownLinks: 'throw' } },
 
   i18n: {
     defaultLocale: 'en',
@@ -55,7 +55,7 @@ const config: Config = {
           label: 'Docs',
         },
         {
-          href: '/api/todo.yaml',
+          href: 'pathname:///api/todo.yaml',
           label: 'Compiled spec',
           position: 'left',
         },

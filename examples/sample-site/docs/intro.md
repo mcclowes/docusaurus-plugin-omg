@@ -38,7 +38,7 @@ export default {
 ## Output
 
 After `docusaurus build` the compiled spec lives at
-[`/api/todo.yaml`](/api/todo.yaml). Same URL in `docusaurus start`.
+[`/api/todo.yaml`](pathname:///api/todo.yaml). Same URL in `docusaurus start`.
 
 ## Rendering
 

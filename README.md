@@ -48,6 +48,26 @@ export default {
 
 With the default `outputDir` of `static/api`, the compiled spec lands in your site's `static/` directory and is served at `/api/<id>.yaml` (or `.json`) at runtime. Any renderer can fetch that URL, or a build-time renderer plugin can read the file directly.
 
+### Linking to a compiled spec
+
+Generated specs are static files, not Docusaurus page routes. Use Docusaurus's
+[`pathname://` link form](https://docusaurus.io/docs/advanced/routing#escaping-from-spa-redirects)
+to avoid broken-route warnings and navigate directly to the file:
+
+```md
+[Download the spec](pathname:///api/todo.yaml)
+```
+
+Use the same form in navbar items:
+
+```ts
+{ label: 'Compiled spec', href: 'pathname:///api/todo.yaml' }
+```
+
+This keeps `onBrokenLinks: 'throw'` available for ordinary page links. It does
+not check that the static file exists; build the plugin and confirm the file is
+present in the site's build output.
+
 ## OMG source layout
 
 OMG specs are a root `api.omg.md` plus per-endpoint files in `endpoints/` (and optional `partials/`):

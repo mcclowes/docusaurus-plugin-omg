@@ -29,6 +29,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- Example links to compiled specs use Docusaurus's static-link form, and the homepage redirects to the intro page. The example now fails on broken page links.
 - Fresh-clone renderer-plugin race where a downstream plugin's `loadContent` would run before the OMG spec was on disk.
 - Case-colliding ids on macOS/Windows silently overwriting each other's output.
 
